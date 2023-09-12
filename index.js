@@ -12,6 +12,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+app.use(express.static("dist"))
 app.use(cors());
 app.use(express.json());
 
@@ -42,9 +43,6 @@ let notes = [
     }
   ]
 
-app.get("/",(req,res)=>{
-    res.send("<h1>Hello World!</h1>");
-})
 app.get("/notes",(req,res)=>{
     res.json(notes);
 })
